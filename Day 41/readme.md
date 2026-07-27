@@ -1,7 +1,7 @@
 # Day 41: Enterprise Feature Stores & Point-in-Time Correct Retrieval with Feast
 
 ### Problem Statement
-The xFusionCorp Industries platform team is adopting Feast to manage feature pipelines for fraud detection. Scaffold a Feast feature repository under `/root/code/feature_repo/`, register feature definitions to a local SQLite registry using `feast apply`, and update `/root/code/build_training_set.py` to retrieve point-in-time correct historical features from the offline store.
+The xFusionCorp Industries platform team is adopting Feast to manage feature pipelines for fraud detection. Scaffold a Feast feature repository under `/root/code/feature_repo/`, register feature definitions to a local SQLite registry using `feast apply`, and update `/root/code/build_training_set.py` to retrieve point-in-time correct historical features from the offline store. The Feast is just like SQL used to retrieve "<=" timestamped data queries faster than standard SQL queries take especially in production. It fetches the required rows and adds the specific columns to the `entity_df` rows. It acts as a real time *data retriever* from the `source` data.
 
 ---
 

@@ -37,3 +37,27 @@ chmod +x materialize.sh
 
 # 3. Retrieve materialized online features and export to JSON
 python3 fetch_features.py
+```
+---
+
+# 📁 Code Files Associated with the Change
+
+### 1. File: `fraud-detection/feature_repo/materialize.sh`
+*(Save at `/root/code/fraud-detection/feature_repo/materialize.sh`)*
+
+```bash
+#!/bin/bash
+# Local File Path: /root/code/fraud-detection/feature_repo/materialize.sh
+# Lab Environment Path: /root/code/fraud-detection/feature_repo/materialize.sh
+# Description: Shell script that triggers Feast materialization to sync offline 
+#              Parquet transactions into the online SQLite database up to END_DATE.
+
+set -euo pipefail
+
+# Ensure script operates within its local directory context
+cd "$(dirname "$0")"
+
+# FIX: Set the ISO-8601 end date beyond all dataset event timestamps (>= 2024-01-01)
+END_DATE="2026-01-01T00:00:00"
+
+feast materialize-incremental "$END_DATE"
